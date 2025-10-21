@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>यशराज कृषी सेवा केंद्र - Yasharaj Krishi Seva Kendra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2e7d32;
+            --secondary: #4caf50;
+            --accent: #ff9800;
+            --light: #f5f5f5;
+            --dark: #1b5e20;
+            --text: #333;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .language-btn {
+            background: var(--light);
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 10;
+            width: 150px;
+        }
+
+        .language-options.active {
+            display: block;
+        }
+
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-option:hover {
+            background: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+        }
+
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: var(--primary);
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Partners Section */
+        .partners {
+            background-color: var(--light);
+            padding: 50px 0;
+        }
+
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .partner-logo {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 180px;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .partner-note {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 50px 0;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Success Message */
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .language-switcher {
+                margin: 15px 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tractor" style="font-size: 2.5rem; color: var(--primary);"></i>
+                </div>
+                <div class="logo-text">
+                    <h1 id="site-title">यशराज कृषी सेवा केंद्र</h1>
+                    <p id="site-tagline">तुमचा विश्वासू शेती सहकारी</p>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-lang-key="home">मुख्यपृष्ठ</a></li>
+                    <li><a href="#products" data-lang-key="products">उत्पादने</a></li>
+                    <li><a href="#partners" data-lang-key="partners">भागीदार</a></li>
+                    <li><a href="#services" data-lang-key="services">सेवा</a></li>
+                    <li><a href="#contact" data-lang-key="contact">संपर्क</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <div class="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang">मराठी</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="language-options">
+                    <div class="language-option" data-lang="mr">
+                        <span>मराठी</span>
+                    </div>
+                    <div class="language-option" data-lang="hi">
+                        <span>हिंदी</span>
+                    </div>
+                    <div class="language-option" data-lang="en">
+                        <span>English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2 id="hero-title">उच्च दर्जाची शेती उत्पादने चांगल्या उत्पादनासाठी</h2>
+            <p id="hero-text">आम्ही शेतकऱ्यांना जास्तीत जास्त उत्पादकता आणि शाश्वत वाढ साध्य करण्यास मदत करण्यासाठी उच्च-गुणवत्तेची कीटकनाशके, खते आणि शेती उपाय प्रदान करतो.</p>
+            <a href="#contact" class="btn" id="hero-btn">आता संपर्क साधा</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="products-title">आमची उत्पादने</h2>
+                <p id="products-text">आम्ही तुमच्या सर्व शेतीच्या गरजा पूर्ण करण्यासाठी कृषी उत्पादनांची विस्तृत श्रृंखला ऑफर करतो</p>
+            </div>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1587332065603-4ce8d47673be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pesticides">
+                    </div>
+                    <div class="product-info">
+                        <h3 id="product1-title">कीटकनाशके आणि कीटकनाशके</h3>
+                        <p id="product1-text">तुमच्या पिकांचे कीटक आणि कीटकांपासून संरक्षण करण्यासाठी प्रभावी उपाय, निरोगी वाढ आणि उच्च उत्पन्न सुनिश्चित करतात.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1615471618986-0c1d18a8c0c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fertilizers">
+                    </div>
+                    <div class="product-info">
+                        <h3 id="product2-title">खते</h3>
+                        <p id="product2-text">मातीची सुपीकता वाढवण्यासाठी आणि मजबूत वनस्पती वाढीस प्रोत्साहन देण्यासाठी पौष्टिक द्रव्ये असलेली खते.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1597843858121-8e0ea500a0b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Seeds">
+                    </div>
+                    <div class="product-info">
+                        <h3 id="product3-title">बियाणे</h3>
+                        <p id="product3-text">उत्कृष्ट अंकुरण दर असलेल्या विविध पिकांसाठी उच्च-गुणवत्तेची, प्रमाणित बियाणे.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1583766395091-2f1f6a6c8b12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Farming Tools">
+                    </div>
+                    <div class="product-info">
+                        <h3 id="product4-title">शेती साधने</h3>
+                        <p id="product4-text">तुमचे काम सोपे करण्यासाठी टिकाऊ आणि कार्यक्षम शेती साधने आणि उपकरणे.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="partners-title">आमचे भागीदार कंपन्या</h2>
+                <p id="partners-text">आम्ही शीर्ष कृषी कंपन्यांसोबत काम करतो ज्या उच्च-गुणवत्तेची उत्पादने प्रदान करतात</p>
+            </div>
+            <div class="partner-logos">
+                <div class="partner-logo">
+                    <span>UPL</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Syngenta</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Kaveri Seed</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Dhanuka Agritech</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Nuziveedu Seeds</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Bayer</span>
+                </div>
+            </div>
+            <div class="partner-note" id="partner-note">
+                * या कंपन्या माती चाचणी सेवा प्रदान करत नाहीत. आम्ही स्वतंत्र माती चाचणी सेवा प्रदान करतो.
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="services-title">आमच्या सेवा</h2>
+                <p id="services-text">उत्पादनांपलीकडे, आम्ही व्यापक कृषी समर्थन सेवा ऑफर करतो</p>
+            </div>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 id="service1-title">तज्ञ सल्ला</h3>
+                    <p id="service1-text">तुमच्या विशिष्ट शेतीच्या गरजांसाठी आमच्या कृषी तज्ञांकडून वैयक्तिकृत सल्ला मिळवा.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 id="service2-title">माती चाचणी</h3>
+                    <p id="service2-text">तुमच्या पिकांसाठी योग्य पोषक द्रव्ये निश्चित करण्यासाठी व्यापक माती विश्लेषण.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 id="service3-title">डिलिव्हरी सेवा</h4>
+                    <p id="service3-text">तुमच्या शेतात किंवा दारात थेट उत्पादनांची सोयीस्कर डिलिव्हरी.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 id="service4-title">आर्थिक सहाय्य</h3>
+                    <p id="service4-text">शेतकऱ्यांसाठी कृषी कर्ज आणि आर्थिक योजनांवर मार्गदर्शन.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="contact-title">आमच्याशी संपर्क साधा</h2>
+                <p id="contact-text">उत्पादन माहिती, समर्थन किंवा कोणत्याही शेती संबंधित प्रश्नांसाठी आमच्याशी संपर्क साधा</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 id="contact-info-title">संपर्क माहिती</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 id="location-title">आमचे स्थान</h4>
+                                <p id="location-text">कृषी बाजार, मुख्य रस्ता, गाव/शहर</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 id="phone-title">आम्हाला कॉल करा</h4>
+                                <p id="phone-text">+९१ XXXXX XXXXX</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 id="email-title">आम्हाला ईमेल करा</h4>
+                                <p id="email-text">devilrider312@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 id="hours-title">कार्यरत तास</h4>
+                                <p id="hours-text">सोमवार - शनिवार: सकाळी ९:०० - संध्याकाळी ७:००</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="success-message" id="successMessage">
+                        तुमच्या संदेशाबद्दल धन्यवाद! आम्ही लवकरच तुमच्याशी संपर्क साधू.
+                    </div>
+                    <form id="supportForm">
+                        <div class="form-group">
+                            <label for="name" id="name-label">पूर्ण नाव</label>
+                            <input type="text" id="name" class="form-control" placeholder="तुमचे पूर्ण नाव प्रविष्ट करा" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" id="phone-label">फोन नंबर</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="तुमचा फोन नंबर प्रविष्ट करा" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" id="email-label">ईमेल पत्ता</label>
+                            <input type="email" id="email" class="form-control" placeholder="तुमचा ईमेल पत्ता प्रविष्ट करा">
+                        </div>
+                        <div class="form-group">
+                            <label for="village" id="village-label">गाव/शहर</label>
+                            <input type="text" id="village" class="form-control" placeholder="तुमचे गाव/शहर प्रविष्ट करा" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="crops" id="crops-label">पिके</label>
+                            <input type="text" id="crops" class="form-control" placeholder="तुम्ही कोणती पिके घेता ते प्रविष्ट करा">
+                        </div>
+                        <div class="form-group">
+                            <label for="issue" id="issue-label">तुमची समस्या/गरज वर्णन करा</label>
+                            <textarea id="issue" class="form-control" placeholder="कृपया तुमची शेती समस्या किंवा उत्पादन गरज वर्णन करा" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;" id="submit-btn">विनंती सबमिट करा</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4 id="footer-title">यशराज कृषी सेवा केंद्र</h4>
+                    <p id="footer-text">तुमचा सर्व कृषी गरजांसाठी विश्वासू भागीदार. शेतकऱ्यांना यशस्वी होण्यास मदत करण्यासाठी आम्ही दर्जेदार उत्पादने आणि तज्ञ मार्गदर्शन प्रदान करतो.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 id="quick-links-title">द्रुत दुवे</h4>
+                    <ul>
+                        <li><a href="#home" data-lang-key="home">मुख्यपृष्ठ</a></li>
+                        <li><a href="#products" data-lang-key="products">उत्पादने</a></li>
+                        <li><a href="#partners" data-lang-key="partners">भागीदार</a></li>
+                        <li><a href="#services" data-lang-key="services">सेवा</a></li>
+                        <li><a href="#contact" data-lang-key="contact">संपर्क</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 id="our-products-title">आमची उत्पादने</h4>
+                    <ul>
+                        <li><a href="#">कीटकनाशके</a></li>
+                        <li><a href="#">खते</a></li>
+                        <li><a href="#">बियाणे</a></li>
+                        <li><a href="#">शेती साधने</a></li>
+                        <li><a href="#">सिंचन उपकरणे</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 id="contact-info-footer-title">संपर्क माहिती</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-location">कृषी बाजार, मुख्य रस्ता</span></li>
+                        <li><i class="fas fa-phone"></i> +९१ XXXXX XXXXX</li>
+                        <li><i class="fas fa-envelope"></i> devilrider312@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyright-text">&copy; २०२३ यशराज कृषी सेवा केंद्र. सर्व हक्क राखीव.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language data
+        const translations = {
+            mr: {
+                // Header
+                "site-title": "यशराज कृषी सेवा केंद्र",
+                "site-tagline": "तुमचा विश्वासू शेती सहकारी",
+                "home": "मुख्यपृष्ठ",
+                "products": "उत्पादने",
+                "partners": "भागीदार",
+                "services": "सेवा",
+                "contact": "संपर्क",
+                
+                // Hero
+                "hero-title": "उच्च दर्जाची शेती उत्पादने चांगल्या उत्पादनासाठी",
+                "hero-text": "आम्ही शेतकऱ्यांना जास्तीत जास्त उत्पादकता आणि शाश्वत वाढ साध्य करण्यास मदत करण्यासाठी उच्च-गुणवत्तेची कीटकनाशके, खते आणि शेती उपाय प्रदान करतो.",
+                "hero-btn": "आता संपर्क साधा",
+                
+                // Products
+                "products-title": "आमची उत्पादने",
+                "products-text": "आम्ही तुमच्या सर्व शेतीच्या गरजा पूर्ण करण्यासाठी कृषी उत्पादनांची विस्तृत श्रृंखला ऑफर करतो",
+                "product1-title": "कीटकनाशके आणि कीटकनाशके",
+                "product1-text": "तुमच्या पिकांचे कीटक आणि कीटकांपासून संरक्षण करण्यासाठी प्रभावी उपाय, निरोगी वाढ आणि उच्च उत्पन्न सुनिश्चित करतात.",
+                "product2-title": "खते",
+                "product2-text": "मातीची सुपीकता वाढवण्यासाठी आणि मजबूत वनस्पती वाढीस प्रोत्साहन देण्यासाठी पौष्टिक द्रव्ये असलेली खते.",
+                "product3-title": "बियाणे",
+                "product3-text": "उत्कृष्ट अंकुरण दर असलेल्या विविध पिकांसाठी उच्च-गुणवत्तेची, प्रमाणित बियाणे.",
+                "product4-title": "शेती साधने",
+                "product4-text": "तुमचे काम सोपे करण्यासाठी टिकाऊ आणि कार्यक्षम शेती साधने आणि उपकरणे.",
+                
+                // Partners
+                "partners-title": "आमचे भागीदार कंपन्या",
+                "partners-text": "आम्ही शीर्ष कृषी कंपन्यांसोबत काम करतो ज्या उच्च-गुणवत्तेची उत्पादने प्रदान करतात",
+                "partner-note": "* या कंपन्या माती चाचणी सेवा प्रदान करत नाहीत. आम्ही स्वतंत्र माती चाचणी सेवा प्रदान करतो.",
+                
+                // Services
+                "services-title": "आमच्या सेवा",
+                "services-text": "उत्पादनांपलीकडे, आम्ही व्यापक कृषी समर्थन सेवा ऑफर करतो",
+                "service1-title": "तज्ञ सल्ला",
+                "service1-text": "तुमच्या विशिष्ट शेतीच्या गरजांसाठी आमच्या कृषी तज्ञांकडून वैयक्तिकृत सल्ला मिळवा.",
+                "service2-title": "माती चाचणी",
+                "service2-text": "तुमच्या पिकांसाठी योग्य पोषक द्रव्ये निश्चित करण्यासाठी व्यापक माती विश्लेषण.",
+                "service3-title": "डिलिव्हरी सेवा",
+                "service3-text": "तुमच्या शेतात किंवा दारात थेट उत्पादनांची सोयीस्कर डिलिव्हरी.",
+                "service4-title": "आर्थिक सहाय्य",
+                "service4-text": "शेतकऱ्यांसाठी कृषी कर्ज आणि आर्थिक योजनांवर मार्गदर्शन.",
+                
+                // Contact
+                "contact-title": "आमच्याशी संपर्क साधा",
+                "contact-text": "उत्पादन माहिती, समर्थन किंवा कोणत्याही शेती संबंधित प्रश्नांसाठी आमच्याशी संपर्क साधा",
+                "contact-info-title": "संपर्क माहिती",
+                "location-title": "आमचे स्थान",
+                "location-text": "कृषी बाजार, मुख्य रस्ता, गाव/शहर",
+                "phone-title": "आम्हाला कॉल करा",
+                "phone-text": "+९१ XXXXX XXXXX",
+                "email-title": "आम्हाला ईमेल करा",
+                "email-text": "devilrider312@gmail.com",
+                "hours-title": "कार्यरत तास",
+                "hours-text": "सोमवार - शनिवार: सकाळी ९:०० - संध्याकाळी ७:००",
+                
+                // Form
+                "name-label": "पूर्ण नाव",
+                "phone-label": "फोन नंबर",
+                "email-label": "ईमेल पत्ता",
+                "village-label": "गाव/शहर",
+                "crops-label": "पिके",
+                "issue-label": "तुमची समस्या/गरज वर्णन करा",
+                "submit-btn": "विनंती सबमिट करा",
+                
+                // Footer
+                "footer-title": "यशराज कृषी सेवा केंद्र",
+                "footer-text": "तुमचा सर्व कृषी गरजांसाठी विश्वासू भागीदार. शेतकऱ्यांना यशस्वी होण्यास मदत करण्यासाठी आम्ही दर्जेदार उत्पादने आणि तज्ञ मार्गदर्शन प्रदान करतो.",
+                "quick-links-title": "द्रुत दुवे",
+                "our-products-title": "आमची उत्पादने",
+                "contact-info-footer-title": "संपर्क माहिती",
+                "footer-location": "कृषी बाजार, मुख्य रस्ता",
+                "copyright-text": "&copy; २०२३ यशराज कृषी सेवा केंद्र. सर्व हक्क राखीव."
+            },
+            hi: {
+                // Header
+                "site-title": "यशराज कृषि सेवा केंद्र",
+                "site-tagline": "आपका विश्वसनीय कृषि सहयोगी",
+                "home": "मुखपृष्ठ",
+                "products": "उत्पाद",
+                "partners": "सहयोगी",
+                "services": "सेवाएं",
+                "contact": "संपर्क करें",
+                
+                // Hero
+                "hero-title": "बेहतर उपज के लिए उच्च गुणवत्ता वाले कृषि उत्पाद",
+                "hero-text": "हम किसानों को अधिकतम उत्पादकता और स्थायी विकास प्राप्त करने में मदद करने के लिए उच्च-गुणवत्ता वाले कीटनाशक, उर्वरक और कृषि समाधान प्रदान करते हैं।",
+                "hero-btn": "अभी संपर्क करें",
+                
+                // Products
+                "products-title": "हमारे उत्पाद",
+                "products-text": "हम आपकी सभी कृषि आवश्यकताओं को पूरा करने के लिए कृषि उत्पादों की एक विस्तृत श्रृंखला प्रदान करते हैं",
+                "product1-title": "कीटनाशक और कीटनाशक",
+                "product1-text": "आपकी फसलों को कीटों और कीड़ों से बचाने के लिए प्रभावी समाधान, स्वस्थ विकास और उच्च उपज सुनिश्चित करते हैं।",
+                "product2-title": "उर्वरक",
+                "product2-text": "मिट्टी की उर्वरता बढ़ाने और मजबूत पौधे के विकास को बढ़ावा देने के लिए पोषक तत्वों से भरपूर उर्वरक।",
+                "product3-title": "बीज",
+                "product3-text": "विभिन्न फसलों के लिए उत्कृष्ट अंकुरण दर वाले उच्च-गुणवत्ता वाले, प्रमाणित बीज।",
+                "product4-title": "कृषि उपकरण",
+                "product4-text": "आपके काम को आसान बनाने के लिए टिकाऊ और कुशल कृषि उपकरण और सामग्री।",
+                
+                // Partners
+                "partners-title": "हमारी सहयोगी कंपनियां",
+                "partners-text": "हम शीर्ष कृषि कंपनियों के साथ काम करते हैं जो उच्च-गुणवत्ता वाले उत्पाद प्रदान करती हैं",
+                "partner-note": "* ये कंपनियां मिट्टी परीक्षण सेवा प्रदान नहीं करती हैं। हम स्वतंत्र मिट्टी परीक्षण सेवा प्रदान करते हैं।",
+                
+                // Services
+                "services-title": "हमारी सेवाएं",
+                "services-text": "उत्पादों से परे, हम व्यापक कृषि सहायता सेवाएं प्रदान करते हैं",
+                "service1-title": "विशेषज्ञ परामर्श",
+                "service1-text": "आपकी विशिष्ट कृषि आवश्यकताओं के लिए हमारे कृषि विशेषज्ञों से व्यक्तिगत सलाह प्राप्त करें।",
+                "service2-title": "मिट्टी परीक्षण",
+                "service2-text": "आपकी फसलों के लिए सही पोषक तत्वों को निर्धारित करने के लिए व्यापक मिट्टी विश्लेषण।",
+                "service3-title": "डिलीवरी सेवा",
+                "service3-text": "आपके खेत या दरवाजे तक उत्पादों की सुविधाजनक डिलीवरी।",
+                "service4-title": "वित्तीय सहायता",
+                "service4-text": "किसानों के लिए कृषि ऋण और वित्तीय योजनाओं पर मार्गदर्शन।",
+                
+                // Contact
+                "contact-title": "हमसे संपर्क करें",
+                "contact-text": "उत्पाद जानकारी, सहायता या किसी भी कृषि संबंधित प्रश्नों के लिए हमसे संपर्क करें",
+                "contact-info-title": "संपर्क जानकारी",
+                "location-title": "हमारा स्थान",
+                "location-text": "कृषि बाजार, मुख्य सड़क, गाँव/शहर",
+                "phone-title": "हमें कॉल करें",
+                "phone-text": "+९१ XXXXX XXXXX",
+                "email-title": "हमें ईमेल करें",
+                "email-text": "devilrider312@gmail.com",
+                "hours-title": "कार्य घंटे",
+                "hours-text": "सोमवार - शनिवार: सुबह ९:०० - शाम ७:००",
+                
+                // Form
+                "name-label": "पूरा नाम",
+                "phone-label": "फोन नंबर",
+                "email-label": "ईमेल पता",
+                "village-label": "गाँव/शहर",
+                "crops-label": "फसलें",
+                "issue-label": "अपनी समस्या/आवश्यकता का वर्णन करें",
+                "submit-btn": "अनुरोध सबमिट करें",
+                
+                // Footer
+                "footer-title": "यशराज कृषि सेवा केंद्र",
+                "footer-text": "आपकी सभी कृषि आवश्यकताओं के लिए विश्वसनीय भागीदार। किसानों को सफल होने में मदद करने के लिए हम गुणवत्तापूर्ण उत्पाद और विशेषज्ञ मार्गदर्शन प्रदान करते हैं।",
+                "quick-links-title": "त्वरित लिंक",
+                "our-products-title": "हमारे उत्पाद",
+                "contact-info-footer-title": "संपर्क जानकारी",
+                "footer-location": "कृषि बाजार, मुख्य सड़क",
+                "copyright-text": "&copy; २०२३ यशराज कृषि सेवा केंद्र. सर्वाधिकार सुरक्षित।"
+            },
+            en: {
+                // Header
+                "site-title": "Yasharaj Krishi Seva Kendra",
+                "site-tagline": "Your Trusted Agricultural Partner",
+                "home": "Home",
+                "products": "Products",
+                "partners": "Partners",
+                "services": "Services",
+                "contact": "Contact",
+                
+                // Hero
+                "hero-title": "Quality Agricultural Products for Better Yield",
+                "hero-text": "We provide high-quality pesticides, fertilizers, and farming solutions to help farmers achieve maximum productivity and sustainable growth.",
+                "hero-btn": "Contact Now",
+                
+                // Products
+                "products-title": "Our Products",
+                "products-text": "We offer a wide range of agricultural products to meet all your farming needs",
+                "product1-title": "Pesticides & Insecticides",
+                "product1-text": "Effective solutions to protect your crops from pests and insects, ensuring healthy growth and higher yield.",
+                "product2-title": "Fertilizers",
+                "product2-text": "Nutrient-rich fertilizers to enhance soil fertility and promote robust plant growth.",
+                "product3-title": "Seeds",
+                "product3-text": "High-quality, certified seeds for various crops with excellent germination rates.",
+                "product4-title": "Farming Tools",
+                "product4-text": "Durable and efficient farming tools and equipment to make your work easier.",
+                
+                // Partners
+                "partners-title": "Our Partner Companies",
+                "partners-text": "We work with top agricultural companies that provide high-quality products",
+                "partner-note": "* These companies do not provide soil testing services. We provide independent soil testing services.",
+                
+                // Services
+                "services-title": "Our Services",
+                "services-text": "Beyond products, we offer comprehensive agricultural support services",
+                "service1-title": "Expert Consultation",
+                "service1-text": "Get personalized advice from our agricultural experts for your specific farming needs.",
+                "service2-title": "Soil Testing",
+                "service2-text": "Comprehensive soil analysis to determine the right nutrients for your crops.",
+                "service3-title": "Delivery Service",
+                "service3-text": "Convenient delivery of products directly to your farm or doorstep.",
+                "service4-title": "Financial Support",
+                "service4-text": "Guidance on agricultural loans and financial schemes for farmers.",
+                
+                // Contact
+                "contact-title": "Contact Us",
+                "contact-text": "Get in touch with us for product inquiries, support, or any farming-related questions",
+                "contact-info-title": "Contact Information",
+                "location-title": "Our Location",
+                "location-text": "Agricultural Market, Main Road, Village/Town",
+                "phone-title": "Call Us",
+                "phone-text": "+91 XXXXX XXXXX",
+                "email-title": "Email Us",
+                "email-text": "devilrider312@gmail.com",
+                "hours-title": "Working Hours",
+                "hours-text": "Monday - Saturday: 9:00 AM - 7:00 PM",
+                
+                // Form
+                "name-label": "Full Name",
+                "phone-label": "Phone Number",
+                "email-label": "Email Address",
+                "village-label": "Village/Town",
+                "crops-label": "Crops Grown",
+                "issue-label": "Describe Your Issue/Requirement",
+                "submit-btn": "Submit Request",
+                
+                // Footer
+                "footer-title": "Yasharaj Krishi Seva Kendra",
+                "footer-text": "Your trusted partner for all agricultural needs. We provide quality products and expert guidance to help farmers succeed.",
+                "quick-links-title": "Quick Links",
+                "our-products-title": "Our Products",
+                "contact-info-footer-title": "Contact Info",
+                "footer-location": "Agricultural Market, Main Road",
+                "copyright-text": "&copy; 2023 Yasharaj Krishi Seva Kendra. All Rights Reserved."
+            }
+        };
+
+        // Current language
+        let currentLang = 'mr';
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Language Switcher
+        document.querySelector('.language-btn').addEventListener('click', function() {
+            document.querySelector('.language-options').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                changeLanguage(lang);
+                document.querySelector('.language-options').classList.remove('active');
+            });
+        });
+
+        // Change Language Function
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Update current language display
+            document.getElementById('current-lang').textContent = 
+                lang === 'mr' ? 'मराठी' : 
+                lang === 'hi' ? 'हिंदी' : 
+                'English';
+            
+            // Update all elements with data-lang-key attribute
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update elements with IDs
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (key === 'copyright-text') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update form placeholders
+            document.getElementById('name').placeholder = 
+                lang === 'mr' ? 'तुमचे पूर्ण नाव प्रविष्ट करा' : 
+                lang === 'hi' ? 'अपना पूरा नाम दर्ज करें' : 
+                'Enter your full name';
+                
+            document.getElementById('phone').placeholder = 
+                lang === 'mr' ? 'तुमचा फोन नंबर प्रविष्ट करा' : 
+                lang === 'hi' ? 'अपना फोन नंबर दर्ज करें' : 
+                'Enter your phone number';
+                
+            document.getElementById('email').placeholder = 
+                lang === 'mr' ? 'तुमचा ईमेल पत्ता प्रविष्ट करा' : 
+                lang === 'hi' ? 'अपना ईमेल पता दर्ज करें' : 
+                'Enter your email address';
+                
+            document.getElementById('village').placeholder = 
+                lang === 'mr' ? 'तुमचे गाव/शहर प्रविष्ट करा' : 
+                lang === 'hi' ? 'अपना गाँव/शहर दर्ज करें' : 
+                'Enter your village/town';
+                
+            document.getElementById('crops').placeholder = 
+                lang === 'mr' ? 'तुम्ही कोणती पिके घेता ते प्रविष्ट करा' : 
+                lang === 'hi' ? 'आप जो फसल उगाते हैं उसे दर्ज करें' : 
+                'Enter crops you grow';
+                
+            document.getElementById('issue').placeholder = 
+                lang === 'mr' ? 'कृपया तुमची शेती समस्या किंवा उत्पादन गरज वर्णन करा' : 
+                lang === 'hi' ? 'कृपया अपनी कृषि समस्या या उत्पाद आवश्यकता का वर्णन करें' : 
+                'Please describe your farming issue or product requirement';
+                
+            // Update success message
+            document.getElementById('successMessage').textContent = 
+                lang === 'mr' ? 'तुमच्या संदेशाबद्दल धन्यवाद! आम्ही लवकरच तुमच्याशी संपर्क साधू.' : 
+                lang === 'hi' ? 'आपके संदेश के लिए धन्यवाद! हम जल्द ही आपसे संपर्क करेंगे।' : 
+                'Thank you for your message! We will contact you soon.';
+        }
+
+        // Form Submission
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const village = document.getElementById('village').value;
+            const crops = document.getElementById('crops').value;
+            const issue = document.getElementById('issue').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For demonstration, we'll just show a success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            document.getElementById('supportForm').reset();
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // In a real implementation, you would use a server-side script to send the data to Excel
+            // For example, using Google Apps Script, PHP, or a similar backend service
+            console.log('Form data:', { name, phone, email, village, crops, issue });
+            
+            // Example of how you might send data to Google Sheets using Google Apps Script
+            // const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+            // fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            //   .then(response => console.log('Success!', response))
+            //   .catch(error => console.error('Error!', error.message));
+        });
+
+        // Initialize with Marathi language
+        changeLanguage('mr');
+    </script>
+</body>
+</html>
