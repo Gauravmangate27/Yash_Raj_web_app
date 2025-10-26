@@ -1,790 +1,240 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>यशराज कृषी सेवा केंद्र</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Gaurav Mangate - Portfolio</title>
+    
     <style>
-        * {
+        /* General body styling (Tokyo Night theme inspired) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+            background-color: #1a1b27; /* Dark background */
+            color: #a9b1d6;       /* Light text */
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #ff9800;
-            --light: #f5f5f5;
-            --dark: #1b5e20;
-            --text: #333;
-        }
-
-        body {
-            background-color: #f9f9f9;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
+        /* Container for the page content */
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #1f2335; /* Slightly lighter dark background */
+            border-radius: 10px;
+            border: 1px solid #3b4261;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px;
-            margin-right: 10px;
-        }
-        
-        .logo-icon {
-            margin-right: 15px;
-        }
-
-        .logo-text h1 {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .logo-text p {
-            font-size: 0.8rem;
-            color: var(--secondary);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            position: absolute;
-            top: 30px;
-            right: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 15px;
             font-weight: 600;
-            transition: background-color 0.3s;
         }
 
-        .btn:hover {
-            background-color: #e68900;
-        }
-
-        /* Products Section */
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-            color: var(--primary);
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-img {
-            height: 200px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
+        /* Specific styles for your headings */
+        h1 {
+            color: #7aa2f7; /* Blue */
+            font-size: 2.2em;
         }
         
-        .product-info p {
-            font-size: 0.9rem;
+        h3 {
+            color: #bb9af7; /* Purple */
+            font-size: 1.4em;
         }
 
-        /* Partners Section */
-        .partners {
-            background-color: var(--light);
-            padding: 50px 0;
+        h4 {
+            color: #a9b1d6; /* Regular text color */
+            font-size: 1.1em;
+            font-weight: 400;
         }
 
-        .partner-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
+        /* --- LINKS --- */
+        a {
+            color: #7dcfff; /* Cyan */
+            text-decoration: none;
         }
 
-        .partner-logo {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            width: 180px;
+        a:hover {
+            text-decoration: underline;
         }
         
-        .partner-logo span {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #555;
+        /* Style for the portfolio link */
+        h4 a {
+            color: #7dcfff;
+            word-break: break-all;
         }
 
-        .partner-logo img {
+        /* --- LISTS (For "About Me" & "Projects") --- */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        
+        /* --- OTHER ELEMENTS --- */
+        
+        /* Horizontal rule */
+        hr {
+            border: 0;
+            height: 1px;
+            background: #3b4261;
+            margin: 30px 0;
+        }
+        
+        /* Images (stats, badges) */
+        img {
             max-width: 100%;
-            max-height: 100%;
-        }
-
-        .partner-note {
-            text-align: center;
-            margin-top: 20px;
-            font-style: italic;
-            color: #666;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 50px 0;
-        }
-
-        .service-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 50px 0;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--primary);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-col h4 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-col ul li a:hover {
-            color: white;
+            height: auto;
         }
         
-        .footer-col p {
-            color: #ccc;
-        }
-        
-        .footer-col li {
-             color: #ccc;
+        /* Spacing for badges */
+        p[align="center"] img {
+            margin: 5px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: background-color 0.3s;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-        }
-
-        .copyright {
+        /* --- ALIGNMENT --- */
+        /* Replicating the 'align="center"' attribute with CSS */
+        h1[align="center"],
+        h3[align="center"],
+        h4[align="center"],
+        p[align="center"] {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #ccc;
         }
 
-        /* Success Message */
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 12px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 15px 20px;
-                flex-wrap: wrap;
-            }
-            
-            nav {
-                width: 100%;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                background: white;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                padding: 15px 0;
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-tractor" style="font-size: 2.5rem; color: var(--primary);"></i>
-                </div>
-                <div class="logo-text">
-                    <h1 id="site-title">यशराज कृषी सेवा केंद्र</h1>
-                    <p id="site-tagline">संपूर्ण कृषी उपायांचे एकच ठिकाण</p>
-                </div>
-            </div>
+
+    <div class="container">
+        
+        <h1 align="center">Hi 👋, I'm Gaurav Mangate</h1>
+        <h4 align="center">
+            <a href="https://gauravmangate27.github.io/portfolio-/" target="_blank" rel="noopener noreferrer">
+                https://gauravmangate27.github.io/portfolio-/
+            </a>
+        </h4>
+
+        <h3 align="center">Data Scientist | AI/ML Enthusiast | AI Automation | Cloud Explorer</h3>
+
+        ---
+
+        <h3>🌟 About Me</h3>
+        <ul>
+            <li>🎓 B.Tech in <strong>Computer Science (AI & ML)</strong> @ DBATU</li>
+            <li>🚀 Passionate about <strong>Deep Learning, NLP, and Cloud AI</strong></li>
+            <li>☁️ Skilled in <strong>Google Cloud, AWS (including AWS Bedrock)</strong></li>
+            <li>🕵️‍♂️ Exploring <strong>Web Scraping, Generative AI, and Data Science Applications</strong></li>
+            <li>⚡ Always building projects that solve real-world problems</li>
+        </ul>
+        
+        ---
+
+        <h3>🔧 Tools & Technologies</h3>
+        <p align="center">
+          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+          <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/>
+          <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
+
+          <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
+          <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
+          <img src="https://img.shields.io/badge/ScikitLearn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
+          <img src ="https://img.shields.io/badge/N8N-FF6F00?style=for-the-badge&logo=N8NlogoColor=white"/>
+          
+          <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
+          <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
+
+          <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"/>
+          <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white"/>
+          <img src="https://img.shields.io/badge/AWS%20Bedrock-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Web%20Scraping-009688?style=for-the-badge&logo=python&logoColor=white"/>
+        </p>
+
+        ---
+
+        <h3>📌 Featured Projects</h3>
+        <p>🚀 Here are some of my impactful projects:</p>
+        <ul>
+            <li>🤖 <strong><a href="https://github.com/Gauravmangate27/SmartChain_Orchestrator" target="_blank" rel="noopener noreferrer">SmartChain_Orchestrator</a></strong><br>
+             Automatically fetches emails every 1 minute 📎 Reads CSV attachments 🧹 Parses, cleans, and validates the data 📦 Saves it to PostgreSQL (Supabase) 🧠 Uses Quadratic AI to generate insights from the data with natural language prompts 📧 Sends out automated insight reports via email — every minute!
+            </li>
             
-            <nav>
-                <ul>
-                    <li><a href="#home">मुख्यपृष्ठ</a></li>
-                    <li><a href="#products">उत्पादने</a></li>
-                    <li><a href="#partners">भागीदार</a></li>
-                    <li><a href="#services">सेवा</a></li>
-                    <li><a href="#contact">संपर्क</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <h2 id="hero-title">भरघोस पिकासाठी उच्च दर्जाची कृषी उत्पादने</h2>
-            <p id="hero-text">आम्ही बियाणे, खते, कीटकनाशके आणि आधुनिक शेती अवजारांचे अधिकृत विक्रेते आहोत. शेतकऱ्यांना जास्तीत जास्त उत्पादकता मिळवण्यासाठी आम्ही मदत करतो.</p>
-            <a href="#contact" class="btn" id="hero-btn">आता संपर्क साधा</a>
-        </div>
-    </section>
-
-    <section id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="products-title">आमची उत्पादने</h2>
-                <p id="products-text">आम्ही तुमच्या सर्व शेतीच्या गरजा पूर्ण करण्यासाठी कृषी उत्पादनांची विस्तृत श्रृंखला ऑफर करतो</p>
-            </div>
-            <div class="products">
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1587332065603-4ce8d47673be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pesticides">
-                    </div>
-                    <div class="product-info">
-                        <h3 id="product1-title">कीटकनाशके आणि बुरशीनाशके</h3>
-                        <p id="product1-text">तुमच्या पिकांचे कीड आणि रोगांपासून संरक्षण करण्यासाठी प्रभावी उपाय. आमच्याकडे सिंजेंटा, बायर, धानुका, UPL ची सर्व प्रमुख उत्पादने मिळतील.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1615471618986-0c1d18a8c0c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fertilizers">
-                    </div>
-                    <div class="product-info">
-                        <h3 id="product2-title">खते आणि विद्राव्य खते</h3>
-                        <p id="product2-text">युरिया, डीएपी, १०:२६:२६, १९:१९:१९, ०:५२:३४ तसेच सूक्ष्म अन्नद्रव्ये आणि सेंद्रिय खते. मातीची सुपीकता वाढवण्यासाठी सर्वोत्तम पर्याय.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1597843858121-8e0ea500a0b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Seeds">
-                    </div>
-                    <div class="product-info">
-                        <h3 id="product3-title">बियाणे (सीड्स)</h3>
-                        <p id="product3-text">कावेरी, नुझिवीडू, सिंजेंटा इत्यादी कंपन्यांचे सोयाबीन, कापूस, मका, ज्वारी आणि सर्व भाजीपाला पिकांचे उच्च-गुणवत्तेचे, प्रमाणित बियाणे.</p>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1583766395091-2f1f6a6c8b12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Farming Tools">
-                    </div>
-                    <div class="product-info">
-                        <h3 id="product4-title">शेती अवजारे आणि इतर</h3>
-                        <p id="product4-text">स्प्रे पंप (मॅन्युअल आणि बॅटरी), ताडपत्री, ठिबक सिंचन साहित्य, पाईप्स आणि शेतीसाठी लागणारी सर्व प्रकारची लहान अवजारे.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="partners" id="partners">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="partners-title">आमचे प्रमुख भागीदार</h2>
-                <p id="partners-text">शेतकऱ्यांना सर्वोत्तम उत्पादने देण्यासाठी आम्ही या नामांकित कंपन्यांचे अधिकृत विक्रेते आहोत</p>
-            </div>
-            <div class="partner-logos">
-                <div class="partner-logo">
-                    <span>UPL</span>
-                </div>
-                <div class="partner-logo">
-                    <span>Syngenta</span>
-                </div>
-                <div class="partner-logo">
-                    <span>Kaveri Seed</span>
-                </div>
-                <div class="partner-logo">
-                    <span>Dhanuka</span>
-                </div>
-                <div class="partner-logo">
-                    <span>Nuziveedu</span>
-                </div>
-                <div class="partner-logo">
-                    <span>Bayer</span>
-                </div>
-            </div>
-            <div class="partner-note" id="partner-note">
-                * टीप: आम्ही स्वतंत्र माती चाचणी सेवा प्रदान करतो.
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="services-title">आमच्या सेवा</h2>
-                <p id="services-text">उत्पादनांसोबतच, आम्ही शेतकऱ्यांसाठी खालील सेवा देखील पुरवतो</p>
-            </div>
-            <div class="service-cards">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 id="service1-title">तज्ञ सल्ला</h3>
-                    <p id="service1-text">पीक नियोजन, रोग नियंत्रण आणि खत व्यवस्थापन यासाठी आमच्या कृषी तज्ञांकडून मोफत आणि वैयक्तिकृत सल्ला मिळवा.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3 id="service2-title">माती परीक्षण</h3>
-                    <p id="service2-text">तुमच्या पिकांसाठी योग्य खते निश्चित करण्यासाठी शासकीय मान्यताप्राप्त लॅबद्वारे सविस्तर माती आणि पाणी परीक्षण.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3 id="service3-title">मोफत होम डिलिव्हरी</h3>
-                    <p id="service3-text">तुमच्या शेतावर किंवा दारात उत्पादनांची सोयीस्कर आणि मोफत डिलिव्हरी (विशिष्ट खरेदीवर, अटी लागू).</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 id="service4-title">शासकीय योजना मार्गदर्शन</h3>
-                    <p id="service4-text">पीक कर्ज, ट्रॅक्टर कर्ज आणि विविध शासकीय अनुदानासाठी लागणाऱ्या कागदपत्रांविषयी आणि प्रक्रियेबद्दल मार्गदर्शन.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="contact-title">आमच्याशी संपर्क साधा</h2>
-                <p id="contact-text">उत्पादन माहिती, सल्ला किंवा कोणत्याही शेती संबंधित प्रश्नांसाठी आमच्याशी संपर्क साधा</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 id="contact-info-title">संपर्क माहिती</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4 id="location-title">आमचे स्थान</h4>
-                                <p id="location-text">यशराज कृषी सेवा केंद्र, कृषी उत्पन्न बाजार समिती जवळ, मु. पो. वाघोली, ता. जि. पुणे - ४१२२०७</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 id="phone-title">आम्हाला कॉल करा</h4>
-                                <p id="phone-text">+९१ ९८XXXXXX१२</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 id="email-title">आम्हाला ईमेल करा</h4>
-                                <p id="email-text">yasharajkrishi@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4 id="hours-title">कार्यरत तास</h4>
-                                <p id="hours-text">सोम - शनि: सकाळी ८:०० - रात्री ८:००<br>रविवार: सकाळी १०:०० - दुपारी २:००</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <div class="success-message" id="successMessage">
-                        तुमच्या संदेशाबद्दल धन्यवाद! आम्ही लवकरच तुमच्याशी संपर्क साधू.
-                    </div>
-                    <form id="supportForm">
-                        <div class="form-group">
-                            <label for="name" id="name-label">पूर्ण नाव</label>
-                            <input type="text" id="name" class="form-control" placeholder="तुमचे पूर्ण नाव प्रविष्ट करा" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" id="phone-label">फोन नंबर</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="तुमचा फोन नंबर प्रविष्ट करा" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="village" id="village-label">गाव/शहर</label>
-                            <input type="text" id="village" class="form-control" placeholder="तुमचे गाव/शहर प्रविष्ट करा" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="issue" id="issue-label">तुमची समस्या/गरज वर्णन करा</label>
-                            <textarea id="issue" class="form-control" placeholder="उदा. मला सोयाबीन पिकावरील किडीबद्दल माहिती हवी आहे..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;" id="submit-btn">विनंती सबमिट करा</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h4 id="footer-title">यशराज कृषी सेवा केंद्र</h4>
-                    <p id="footer-text">यशराज कृषी सेवा केंद्र, वाघोली, पुणे. शेतकऱ्यांच्या सेवेसाठी आणि समृद्धीसाठी आम्ही समर्पित आहोत.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 id="quick-links-title">द्रुत दुवे</h4>
-                    <ul>
-                        <li><a href="#home">मुख्यपृष्ठ</a></li>
-                        <li><a href="#products">उत्पादने</a></li>
-                        <li><a href="#partners">भागीदार</a></li>
-                        <li><a href="#services">सेवा</a></li>
-                        <li><a href="#contact">संपर्क</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 id="our-products-title">आमची उत्पादने</h4>
-                    <ul>
-                        <li><a href="#">कीटकनाशके आणि बुरशीनाशके</a></li>
-                        <li><a href="#">खते आणि विद्राव्य खते</a></li>
-                        <li><a href="#">बियाणे (सीड्स)</a></li>
-                        <li><a href="#">शेती अवजारे</a></li>
-                        <li><a href="#">ठिबक सिंचन साहित्य</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 id="contact-info-footer-title">संपर्क माहिती</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-location">APMC मार्केट जवळ, वाघोली, पुणे</span></li>
-                        <li><i class="fas fa-phone"></i> +९१ ९८XXXXXX१२</li>
-                        <li><i class="fas fa-envelope"></i> yasharajkrishi@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p id="copyright-text">&copy; २०२५ यशराज कृषी सेवा केंद्र. सर्व हक्क राखीव.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Form Submission
-        document.getElementById('supportForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            <li>🥔 <strong><a href="https://github.com/Gauravmangate27/Potato-disease-classification" target="_blank" rel="noopener noreferrer">Potato Disease Classification</a></strong><br>
+              Deep learning app to classify potato leaf diseases using CNN.
+            </li>
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const village = document.getElementById('village').value;
-            const issue = document.getElementById('issue').value;
+            <li>🤖 <strong><a href="https://github.com/Gauravmangate27/AI-Powered-Scraper-Bot" target="_blank" rel="noopener noreferrer">AI-Powered Scraper Bot</a></strong><br>
+              An intelligent web scraping system that integrates <strong>LLMs (GPT, AWS Bedrock)</strong> to transform raw, unstructured content into clean and structured insights.
+            </li>
             
-            // In a real implementation, you would send this data to a server
-            // For demonstration, we'll just show a success message
-            document.getElementById('successMessage').style.display = 'block';
+            <li>✂️ <strong><a href="https://github.com/Gauravmangate27/Text_Summarization" target="_blank" rel="noopener noreferrer">Text Summarization</a></strong><br>
+              NLP project that generates concise summaries from long documents using <strong>extractive & abstractive methods</strong>.
+            </li>
             
-            // Reset form
-            document.getElementById('supportForm').reset();
+            <li>🧠 <strong><a href="https://github.com/Gauravmangate27/Brain_tumor_Detection" target="_blank" rel="noopener noreferrer">Brain Tumor Detection</a></strong><br>
+              Detects and classifies tumors in MRI scans using CNN / ResNet.
+            </li>
             
-            // Scroll to success message
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            <li>💰 <strong><a href="https://github.com/Gauravmangate27/BitCoin-Price-Prediction" target="_blank" rel="noopener noreferrer">Bitcoin Price Prediction</a></strong><br>
+              Predicts Bitcoin price trends using ML on OHLCV data.
+            </li>
             
-            console.log('Form data:', { name, phone, village, issue });
+            <li>🩺 <strong><a href="https://github.com/Gauravmangate27/Medical_ChatBot" target="_blank" rel="noopener noreferrer">Medical Chatbot</a></strong><br>
+              RAG-based chatbot using <strong>LangChain + Pinecone</strong> with PDF ingestion.
+            </li>
             
-            // Example of how you might send data to Google Sheets using Google Apps Script
-            // const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-            // fetch(scriptURL, { method: 'POST', body: new FormData(e.target)})
-            //   .then(response => console.log('Success!', response))
-            //   .catch(error => console.error('Error!', error.message));
-        });
-    </script>
-</body>
+            <li>📊 <strong><a href="https://github.com/Gauravmangate27/IPL_Win_Probability_Prediction" target="_blank" rel="noopener noreferrer">IPL Win Probability Prediction</a></strong><br>
+              Predicts IPL match outcomes using historical + real-time features.
+            </li>
+            
+            <li>📖 <strong><a href="https://github.com/Gauravmangate27/Book_recommendation_gs" target="_blank" rel="noopener noreferrer">Book Recommendation System</a></strong><br>
+              Suggests books using ML + NLP with a web interface.
+            </li>
+            
+            <li>🌍 <strong><a href="https://github.com/Gauravmangate27/air-quality-monitoring" target="_blank" rel="noopener noreferrer">Air Quality Monitoring (IoT)</a></strong><br>
+              ESP32 + MQ132 + Blynk project for real-time air quality tracking.
+            </li>
+        </ul>
+
+        ---
+
+        <h3>📊 GitHub Stats</h3>
+        <p align="center">
+          <img src="https://github-readme-stats.vercel.app/api?username=Gauravmangate27&show_icons=true&theme=tokyonight" height="180"/>
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Gauravmangate27&theme=tokyonight" height="180"/>
+        </p>
+
+        ---
+
+        <h3>🏆 GitHub Trophies</h3>
+        <p align="center">
+          <img src="https://github-profile-trophy.vercel.app/?username=Gauravmangate27&theme=radical&margin-w=15&margin-h=15"/>
+        </p>
+
+        ---
+
+        <h3>✨ Fun Animations</h3>
+        <p align="center">
+          <img src="https://readme-typing-svg.herokuapp.com?size=24&duration=4000&color=F75C7E&center=true&vCenter=true&width=600&lines=AI+%26+ML+Developer;Deep+Learning+Practitioner;Cloud+%7C+Web+Dev+Enthusiast;Always+Learning+New+Things"/>
+        </p>
+
+        ---
+
+        <h3>📫 Connect with Me</h3>
+        <p align="center">
+          <a href="https://www.linkedin.com/in/gauravmangate/"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+          <a href="mailto:gauravmangate27@gmail.com"><img src="https://img.shields.io/badge/-Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+          <a href="https://github.com/Gauravmangate27"><img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
+        </p>
+
+        </div> </body>
 </html>
